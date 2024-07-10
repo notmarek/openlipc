@@ -63,8 +63,46 @@ extern "C" {
  * @{ */
 
 /** LIPC library handler. */
-typedef void LIPC;
-
+// typedef void LIPC;
+struct LIPC
+{
+    char* magic;
+    char* service_name;
+    void* dbus_bus;
+    /* __padding */ char _C[4];
+    /* __padding */ char _10[0x10];
+    /* __padding */ char _20[0x10];
+    /* __padding */ char _30[8];
+    /* __padding */ char _38[4];
+    char* unk1;
+    void* dbus_mutex;
+    /* __padding */ char _44[0xc];
+    /* __padding */ char _50[8];
+    void* spip_handle;
+    /* __padding */ char _5C[4];
+    void* prop_handling;
+    void* client_mutex;
+    /* __padding */ char _68[8];
+    /* __padding */ char _70[0xc];
+    void* g_hashtable_property_handling;
+    void* reply_hash_mutex;
+    /* __padding */ char _84[0xc];
+    /* __padding */ char _90[8];
+    void* cb_thread;
+    void* cb_thread_attr;
+    /* __padding */ char _A0[0x10];
+    /* __padding */ char _B0[0x10];
+    int is_cb_thread_init;
+    void* cb_thread_async_queue;
+    void* wait_mutex;
+    /* __padding */ char _CC[4];
+    /* __padding */ char _D0[0x10];
+    int random_seed;
+    void* g_hashtable_event_handling;
+    int prop_access_timeout;
+    int dyn_prop_access_timeout;
+    void* hasharray_mutex;
+};
 /**
  * Status codes returned by all sorts of LIPC library functions.
  *
